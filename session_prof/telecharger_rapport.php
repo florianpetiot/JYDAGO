@@ -44,13 +44,13 @@ else {
         $liste_prof = array();
         $liste_specialite = array();
 
-        while($row = mysqli_fetch_array($requete_eleve)) {
+        while ($row = mysqli_fetch_array($requete_eleve)) {
             $liste_eleve[] = $row;
         }
-        while($row = mysqli_fetch_array($requete_prof)) {
+        while ($row = mysqli_fetch_array($requete_prof)) {
             $liste_prof[] = $row;
         }
-        while($row = mysqli_fetch_array($requete_specialite)) {
+        while ($row = mysqli_fetch_array($requete_specialite)) {
             $liste_specialite[] = $row;
         }
 
@@ -156,13 +156,13 @@ else {
             for ($i = 0; $i < 2; $i++) {
                 $liste_prof_associe = explode("/", $eleve[7+$i]);
                 foreach ($liste_prof_associe as $prof) {
-                    foreach ($liste_prof as $prof_){
+                    foreach ($liste_prof as $prof_) {
                         if(($prof_["id"] == $prof) && (in_array($eleve[7+$i-2], explode("/", $prof_["specialite"])) === false)){
                             array_push($liste_erreurs, array("Erreur critique", $eleve["prenom"]." ".$eleve["nom"]." a une spé".strval($i+1)." incohérente avec son idprof".strval($i+1)." (idprof : ".$prof_[0].", spé : ".$eleve[7+$i-2].")"));
                             $fatal = true;
                         }
                     }
-                }   
+                }
             }
             if ($fatal) {
                 continue;
@@ -205,7 +205,7 @@ else {
                 for ($j = 0; $j < 2; $j++) {
                     array_push($liste_specialite_associe, $eleve[10+$i+$j]);
                 }
-                foreach ($liste_specialite_associe as $spe){
+                foreach ($liste_specialite_associe as $spe) {
                     if ($spe != "" && !in_array($spe, $liste_spe_court)) {
                         array_push($liste_erreurs, array("Erreur critique", $eleve["prenom"]." ".$eleve["nom"]." a choisi une spécialité non existante dans la table 'specialites' pour sa question ".strval(array_search($i, [0,3])+1)." (spé : ".$spe.")"));
                     }
@@ -218,13 +218,13 @@ else {
 
             // verifier que l'élève utilise bien ses deux specialité au moins une fois
             $liste_specialite_questions = array();
-            for($i = 0; $i <= 3; $i=$i+3){
-                for($j = 0; $j < 2; $j++){
+            for ($i = 0; $i <= 3; $i=$i+3) {
+                for ($j = 0; $j < 2; $j++) {
                     array_push($liste_specialite_questions, $eleve[10+$i+$j]);
                 }
             }
             for ($i = 0; $i < 2; $i++){
-                if (in_array($eleve[5+$i], $liste_specialite_questions) === false){
+                if (in_array($eleve[5+$i], $liste_specialite_questions) === false) {
                     array_push($liste_erreurs, array("Erreur critique", $eleve["prenom"]." ".$eleve["nom"]." n'a pas utilisé sa spécialité ".$eleve[5+$i]." dans ses questions"));
                 }
             }
@@ -268,7 +268,7 @@ else {
         $writer->writeSheetRow($sheet1, array('', '', '', '', '', '', '', '', '', '', ''));
         $writer->writeSheetRow($sheet1, array('Type', 'Détails', '', '', '', '', 'Classe', "Nombre d'élèves", '', 'ID professeur', "Nombre d'élèves"), ['halign'=>'center']);
 
-        $max = max(count($liste_erreurs) ,count($liste_classe)/2, count($liste_professeur)/2);
+        $max = max(count($liste_erreurs), count($liste_classe)/2, count($liste_professeur)/2);
 
         for ($i = 0; $i < $max; $i++) {
             $ligne = array();

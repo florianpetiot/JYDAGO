@@ -52,7 +52,7 @@ function recupperer_questions() {
     if (id !== "" && mdp !== "") { //si les champs sont remplis
 
         // creer un objet XMLHttpRequest
-        var xmlhttp = new XMLHttpRequest();
+        let xmlhttp = new XMLHttpRequest();
 
         // editer la requete
         xmlhttp.open("GET", "recuperer.php?user_id=" + id + "&user_mdp=" + mdp, true);
@@ -67,7 +67,7 @@ function recupperer_questions() {
                 // statut attendu
 
                 // recuperer la reponse du fichier php
-                var reponse = this.responseText;
+                let reponse = this.responseText;
 
                 if (reponse == "err_id") {
                     // identifiants incorrects
@@ -163,13 +163,13 @@ function recupperer_questions() {
 
 function sauvegarder_questions() {
     // recuperer les valeurs des champs de textes
-    var q1 = document.getElementById("q1").value;
+    let q1 = document.getElementById("q1").value;
     q1 = q1.replace(/'/g, "\\\'");
     q1 = q1.replace(/[\r\n]+/g,' ');
     q1 = q1.replace(/\s\s+/g, ' ');
     const q1s1 = document.getElementById("q1s1").value;
     const q1s2 = document.getElementById("q1s2").value;
-    var q2 = document.getElementById("q2").value;
+    let q2 = document.getElementById("q2").value;
     q2 = q2.replace(/'/g, "\\\'");
     q2 = q2.replace(/[\r\n]+/g,' ');
     q2 = q2.replace(/\s\s+/g, ' ');
@@ -187,7 +187,7 @@ function sauvegarder_questions() {
     }
     else {
         // creer un objet XMLHttpRequest
-        var xmlhttp = new XMLHttpRequest();
+        let xmlhttp = new XMLHttpRequest();
 
         // editer la requete
         xmlhttp.open("GET", "envoyer.php?user_id=" + id + "&mdp="+ mdp + "&q1=" + q1 + "&q1s1=" + q1s1 + "&q1s2=" + q1s2 + "&q2=" + q2 + "&q2s1=" + q2s1 + "&q2s2=" + q2s2, true);
@@ -198,7 +198,7 @@ function sauvegarder_questions() {
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 // statut attendu
-                var reponse = this.responseText;
+                let reponse = this.responseText;
 
                 if (reponse.includes("err_connexion")) {
                     alert("Une erreur de communication est survenue !\nVeuillez réessayer ultérieurement.");

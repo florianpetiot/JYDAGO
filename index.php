@@ -10,7 +10,7 @@
     <title>JYDAGO</title>
 </head>
 
-<body class="animate-in">  
+<body class="animate-in">
     <script type="text/javascript" src="script_eleve.js?v=25"></script>
 
     <a href="session_prof/">

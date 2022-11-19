@@ -20,18 +20,18 @@ else {
 
     // recuperer le resultat de la requete
     mysqli_query($con, "SET NAMES 'utf8'");
-    $nom_eleve = mysqli_query($con,"SELECT nom, prenom FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+    $nom_eleve = mysqli_query($con, "SELECT nom, prenom FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
 
     // verifier qu'il y a un resultat
     $existe = mysqli_num_rows($nom_eleve);
     if ($existe == 0) {
         // tester si un prof s'est connecté au mauvais endroit
-        $test_prof = mysqli_query($con,"SELECT * FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+        $test_prof = mysqli_query($con, "SELECT * FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
         $existe_prof = mysqli_num_rows($test_prof);
         if ($existe_prof != 0) {
             echo "err_prof";
         }
-        else{
+        else {
             echo "err_id";
         }
         // On ferme la connexion

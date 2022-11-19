@@ -24,7 +24,7 @@ if (mysqli_connect_errno()) {
 }
 else{
     // recuperer le resultat de la requete
-    $requete=mysqli_query($con,"SELECT nom FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+    $requete=mysqli_query($con, "SELECT nom FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
 
     // verifier qu'il y a un resultat
     $existe=mysqli_num_rows($requete);
@@ -65,7 +65,7 @@ else{
         
             // envoyer un message de succes
             echo "success";
-        }  
+        }
     }
 }
 mysqli_close($con);
