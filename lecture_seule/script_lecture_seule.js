@@ -16,7 +16,7 @@ function recupperer_questions() {
     if (id !== "" && mdp !== "") { //si les champs sont remplis
 
         // creer un objet XMLHttpRequest
-        var xmlhttp = new XMLHttpRequest();
+        let xmlhttp = new XMLHttpRequest();
 
         // editer la requete
         xmlhttp.open("GET", "recuperer.php?user_id=" + id + "&user_mdp=" + mdp, true);
@@ -31,7 +31,7 @@ function recupperer_questions() {
                 // statut attendu
 
                 // recuperer la reponse du fichier php
-                var reponse = this.responseText;
+                let reponse = this.responseText;
 
                 if (reponse == "err_id") {
                     // identifiants incorrects

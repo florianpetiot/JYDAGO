@@ -10,7 +10,7 @@ function recupperer_questions() {
     if (id !== "" && mdp !== "") { //si les champs sont remplis
 
         // creer un objet XMLHttpRequest
-        var xmlhttp = new XMLHttpRequest();
+        let xmlhttp = new XMLHttpRequest();
 
         // editer la requete
         xmlhttp.open("GET", "recuperer_prof.php?user_id=" + id + "&user_mdp=" + mdp, true);
@@ -25,7 +25,7 @@ function recupperer_questions() {
                 // statut attendu
 
                 // recuperer la reponse du fichier php
-                var reponse = this.responseText;
+                let reponse = this.responseText;
 
                 if (reponse == "err_id") {
                     // identifiants incorrects
@@ -51,13 +51,13 @@ function recupperer_questions() {
                     const myObj = JSON.parse(reponse);
 
                     // ajout du bloc HTML dans la div "cadre-ext"
-                    var cadre_ext = document.getElementById('cadre-ext');
-                    var div = document.createElement('div');
+                    let cadre_ext = document.getElementById('cadre-ext');
+                    let div = document.createElement('div');
                     div.setAttribute('class', 'liste-questions large');
                     div.setAttribute('id', 'liste-questions');
 
                     // creation du bloc html à ajouter
-                    var html = "";
+                    let html = "";
 
                     html += "<h3 id='nom-prof'>Bonjour, " + myObj["nom_prof"].prenom + " " + myObj["nom_prof"].nom + "</h3>";
                     html += "<button id='bouton-exporter' class='large' onclick='telecharger_questions()'>Exporter les questions</button>";
@@ -66,7 +66,7 @@ function recupperer_questions() {
                     }
                     html += "<hr>";
 
-                    for (var item in myObj) {
+                    for (let item in myObj) {
 
                         if (item != "specialite" && item != "nom_prof") {
                             html += `<h4 class='prenom'>${myObj[item].nom} ${myObj[item].prenom} - ${myObj[item].classe}</h4>`;
@@ -114,7 +114,7 @@ function telecharger_questions() {
     if (id !== "" && mdp !== "") { //si les champs sont remplis
 
         // creer un objet XMLHttpRequest
-        var xmlhttp = new XMLHttpRequest();
+        let xmlhttp = new XMLHttpRequest();
 
         // editer la requete
         xmlhttp.open("GET", "exporter_questions.php?user_id=" + id + "&user_mdp=" + mdp, true);
@@ -129,7 +129,7 @@ function telecharger_questions() {
                 // statut attendu
 
                 // recuperer la reponse du fichier php
-                var reponse = this.responseText;
+                let reponse = this.responseText;
 
                 if (reponse == "err_id") {
                     // identifiants incorrects
@@ -141,17 +141,17 @@ function telecharger_questions() {
                 }
                 else {
                     // make user's browser download the file
-                    var link = document.createElement('a');
+                    let link = document.createElement('a');
                     link.href = reponse;
                     link.download = reponse;
                     link.click();
 
                     // detect if the file is downloaded
-                    var interval = setInterval(function () {
+                    let interval = setInterval(function () {
                         if (link.href.includes(reponse)) {
                             clearInterval(interval);
                             // remove the file from the server
-                            var xmlhttp2 = new XMLHttpRequest();
+                            let xmlhttp2 = new XMLHttpRequest();
                             xmlhttp2.open("GET", "supprimer_fichier.php?fichier=" + reponse, true);
                             xmlhttp2.send();
                         }
@@ -170,7 +170,7 @@ function telecharger_rapport() {
     if (id !== "" && mdp !== "") { //si les champs sont remplis
 
         // creer un objet XMLHttpRequest
-        var xmlhttp = new XMLHttpRequest();
+        let xmlhttp = new XMLHttpRequest();
 
         // editer la requete
         xmlhttp.open("GET", "telecharger_rapport.php?user_id=" + id + "&user_mdp=" + mdp, true);
@@ -185,7 +185,7 @@ function telecharger_rapport() {
                 // statut attendu
 
                 // recuperer la reponse du fichier php
-                var reponse = this.responseText;
+                let reponse = this.responseText;
                 
                 if (reponse == "err_id") {
                     // identifiants incorrects
@@ -197,17 +197,17 @@ function telecharger_rapport() {
                 }
                 else {
                     // make user's browser download the file
-                    var link = document.createElement('a');
+                    let link = document.createElement('a');
                     link.href = reponse;
                     link.download = reponse;
                     link.click();
                     
                     // detect if the file is downloaded
-                    var interval = setInterval(function () {
+                    let interval = setInterval(function () {
                         if (link.href.includes(reponse)) {
                             clearInterval(interval);
                             // remove the file from the server
-                            var xmlhttp2 = new XMLHttpRequest();
+                            let xmlhttp2 = new XMLHttpRequest();
                             xmlhttp2.open("GET", "supprimer_fichier.php?fichier=" + reponse, true);
                             xmlhttp2.send();
                         }

@@ -18,13 +18,13 @@ if (mysqli_connect_errno()) {
 else {
     // recuperer la specialite demandee
     mysqli_query($con, "SET NAMES 'utf8'");
-    $specialite_prof = mysqli_query($con,"SELECT specialite FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+    $specialite_prof = mysqli_query($con, "SELECT specialite FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
 
     // verifier qu'il y a un resultat
     $existe=mysqli_num_rows($specialite_prof);
     if ($existe == 0) {
         // tester si un prof s'est connecté au mauvais endroit
-        $test_eleve = mysqli_query($con,"SELECT * FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+        $test_eleve = mysqli_query($con, "SELECT * FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
         $existe_eleve = mysqli_num_rows($test_eleve);
         if ($existe_eleve != 0) {
             echo "err_eleve";
@@ -47,7 +47,7 @@ else {
         $row = mysqli_fetch_array($specialite_prof);
         $specialite = $row["specialite"];
 
-        if($specialite != "TOUTES") {
+        if ($specialite != "TOUTES") {
             // recuperer les questions si l'élève à le prof dans une de ses deux spé
             mysqli_query($con, "SET NAMES 'utf8'");
             $requete_eleve = mysqli_query($con, "SELECT nom, prenom, classe, spe1, spe2, idprof1, idprof2, question1, q1spe1, q1spe2, question2, q2spe1, q2spe2 FROM liste
@@ -68,7 +68,7 @@ else {
         }
 
         if ($specialite != "TOUTES") {
-            // trier les question 
+            // trier les question
             foreach ($liste_eleves as &$eleve) {
                 // on a recupperer plus haut toute les question si l'élève à le prof dans une de ses deux spé
                 // mais si un prof a deux spécialités A et B, et que l’élève l’a en A mais pas en B, alors le prof ne verra pas la question de B
@@ -117,8 +117,8 @@ else {
                         $eleve[12] = "";
                     }
                 }
-            }    
-        }  
+            }
+        }
 
         // ajout de LA specialite et du nom/prenom dans la liste
         $liste_eleves += array("nom_prof" => $nom_prof);

@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 else {
     // recuperer la specialite demandee
     mysqli_query($con, "SET NAMES 'utf8'");
-    $specialite_prof = mysqli_query($con,"SELECT specialite FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+    $specialite_prof = mysqli_query($con, "SELECT specialite FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
 
     // verifier qu'il y a un resultat
     $existe=mysqli_num_rows($specialite_prof);
@@ -33,14 +33,14 @@ else {
         // stocker la specialite
         $row = mysqli_fetch_array($specialite_prof);
         $specialite = $row["specialite"];
-        if($specialite != "TOUTES") {
+        if ($specialite != "TOUTES") {
             // separer les specialites en une liste
             $liste_specialites_demandee = explode("/", $specialite);
 
             // recuperer les questions si l'une d'entre elles est concernée par la specialite
             mysqli_query($con, "SET NAMES 'utf8'");
             $requete_eleve = mysqli_query($con, "SELECT nom, prenom, classe, spe1, spe2, idprof1, idprof2, question1, q1spe1, q1spe2, question2, q2spe1, q2spe2 FROM liste  
-                                            WHERE idprof1 LIKE '%".$user_id."%' OR idprof2 LIKE '%".$user_id."%';"); 
+                                            WHERE idprof1 LIKE '%".$user_id."%' OR idprof2 LIKE '%".$user_id."%';");
 
         }
         else {
@@ -51,15 +51,15 @@ else {
             $requete_specialites = mysqli_query($con, "SELECT * FROM specialites;");
 
             $liste_profs = array();
-            while($row = mysqli_fetch_array($requete_prof)) {
+            while ($row = mysqli_fetch_array($requete_prof)) {
                 $liste_profs[] = $row;
             }
             $liste_specialites = array();
-            while($row = mysqli_fetch_array($requete_specialites)) {
+            while ($row = mysqli_fetch_array($requete_specialites)) {
                 $liste_specialites[] = $row;
             }
             $liste_specialites_demandee = array();
-            foreach($liste_specialites as $spe) {
+            foreach ($liste_specialites as $spe) {
                 $liste_specialites_demandee[] = $spe["id_spe"];
             }
         }
@@ -91,7 +91,7 @@ else {
             $writer->writeSheetHeader($sheet1, array('nom'=>'string', 'prenom'=>'string', 'classe'=>'string', 'spe1'=>'string', 'spe2'=>'string', 'prof1_nom'=>'string' ,'prof1_prenom'=>'string', 'prof2_nom'=>'string', 'prof2_prenom'=>'string', 'question1'=>'string', 'q1spe1'=>'string', 'q1spe2'=>'string', 'question2'=>'string', 'q2spe1'=>'string', 'q2spe2'=>'string'),
                                 ['auto_filter'=>true, 'freeze_row'=>1, 'widths'=>[20,20,10,20,20,20,20,20,20,50,20,20,50,20,20]]);
 
-            for($i=0; $i<count($liste_eleves); $i++) {
+            for ($i=0; $i<count($liste_eleves); $i++) {
                 
                 // construction de la ligne
                 // nom, prenom, classe
@@ -99,9 +99,9 @@ else {
                                 $liste_eleves[$i]["prenom"],
                                 $liste_eleves[$i]["classe"],);
                 // spe1, spe2
-                for($j=0; $j<2; $j++) {
+                for ($j=0; $j<2; $j++) {
                     $compteur = 0;
-                    foreach($liste_specialites as $spe){
+                    foreach ($liste_specialites as $spe) {
                         if ($liste_eleves[$i]["spe".($j+1)] == $spe["id_spe"]) {
                             array_push($ligne, $spe["libelle"]);
                             $compteur++;
@@ -112,9 +112,9 @@ else {
                     }
                 }
                 // prof1_nom, prof1_prenom, prof2_nom, prof2_prenom
-                for($j=0; $j<2; $j++) {
+                for ($j=0; $j<2; $j++) {
                     $compteur = 0;
-                    foreach($liste_profs as $prof){
+                    foreach ($liste_profs as $prof) {
                         if (strpos($liste_eleves[$i]["idprof".($j+1)], $prof["id"]) !== false) {
                             array_push($ligne, $prof["nom"], $prof["prenom"]);
                             $compteur++;
@@ -126,31 +126,31 @@ else {
                     }
                 }
                 // question1, q1spe1, q1spe2, question2, q2spe1, q2spe2
-                for($k=0; $k<2; $k++) {
+                for ($k=0; $k<2; $k++) {
                     array_push($ligne, $liste_eleves[$i]["question".($k+1)]);
-                    for($j=0; $j<2; $j++) {
+                    for ($j=0; $j<2; $j++) {
                         $compteur = 0;
-                        foreach($liste_specialites as $spe){
+                        foreach ($liste_specialites as $spe) {
                             if ($liste_eleves[$i]["q".($k+1)."spe".($j+1)] == $spe["id_spe"]) {
                                 array_push($ligne, $spe["libelle"]);
                                 $compteur++;
                             }
                         }
-                        if($compteur == 0) {
+                        if ($compteur == 0) {
                             array_push($ligne, "");
                         }
-                    } 
+                    }
                 }
 
                 $writer->writeSheetRow($sheet1, $ligne, $row_options = array('height'=>40,'wrap_text'=>true, 'border'=>'left,right,top,bottom'));
             }
 
             // FEUILLE PAR SPECIALITE COMMUNE A EXCEL POUR PROF
-        } 
+        }
 
 
         // fichier excel special prof ---------------------------------------------------
-        else{
+        else {
             
             // trier la liste des question
             foreach ($liste_eleves as &$eleve) {
@@ -241,7 +241,7 @@ else {
                     // OU || si le prof de l'élève, dans cette spe, n'est pas le prof qui reclamme le fichier excel (cas typique : prof1A/B, prof2A, q1A avec p2, q2B) ET QUE && le prof qui reclamme n'est pas l'administrateur, car transcendant de tous les profs
                     // ALORS on initie la supression de la ligne, SAUF si la question 2 sera utile (ligne 153)
                     
-                    if(in_array($spe, array($eleve["spe1"], $eleve["spe2"])) === false || (in_array($user_id, explode("/", array($eleve["idprof1"], $eleve["idprof2"])[array_search($spe, array($eleve["spe1"], $eleve["spe2"]))])) === false && $specialite != "TOUTES")) {
+                    if (in_array($spe, array($eleve["spe1"], $eleve["spe2"])) === false || (in_array($user_id, explode("/", array($eleve["idprof1"], $eleve["idprof2"])[array_search($spe, array($eleve["spe1"], $eleve["spe2"]))])) === false && $specialite != "TOUTES")) {
                         $vide = true;
                     }
                 }
@@ -252,8 +252,7 @@ else {
                 else {
                     if (!$vide) {
                         array_push($ligne, "", "", "");
-                    }
-                    else {
+                    } else {
                         continue;
                     }
                 }
