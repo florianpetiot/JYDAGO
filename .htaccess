@@ -1,0 +1,22 @@
+RewriteEngine On
+
+# redirection vers page 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ 404/index.html [L]
+
+
+# JJ/MM/YYYY_HHhMM
+# ex: 31/12/9999_23h59
+
+SetEnv TZ Europe/Paris
+SetEnvIf Host ^ LIMITE=20230616123000
+
+
+RewriteCond expr "%{TIME} -ge env('LIMITE')"
+RewriteRule ^index\.php$ lecture_seule/index.html [L,NC]
+
+
+RewriteCond expr "%{TIME} -lt env('LIMITE')"
+RewriteRule "^/lecture_seule\.html$" "/index.php" [PT]
+

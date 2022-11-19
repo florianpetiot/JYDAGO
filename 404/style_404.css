@@ -1,0 +1,115 @@
+* { box-sizing:border-box; }
+
+html, body{min-height:100%;}
+/* pallier un probleme sur les ecrans de telephone plus grands que le cadre */
+
+html { 
+  scroll-behavior: smooth;
+  /* transitions fluides si besoin */
+}
+
+body {
+  font-family: sans-serif;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  background: linear-gradient(135deg, #264653, #2A9D8F);
+}
+
+
+/* Cadre exterieur */
+
+.cadre-ext {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 60px;
+  background: #B1D1CE;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  height:justify;
+  max-width: 700px;
+}
+
+
+/* transition fluide */
+
+.animate-in {
+  -webkit-animation: fadeIn .5s ease-in;
+  animation: fadeIn .5s ease-in;
+}
+
+.animate-out {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
+
+/* titre principal de l'application */
+h1, h2{
+  text-align:center;
+}
+
+
+h3 {
+  text-align:center;
+  margin-bottom: 45px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+a{
+  font-size: larger;
+  text-decoration: none;
+  color: #0D62C4;
+}
+
+.underline{
+  position: relative;
+  text-align: center;
+}
+
+.underline::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 2px;
+  background-color: #0D62C4;
+  transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .underline:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+
+img {
+  margin-top: 40px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}

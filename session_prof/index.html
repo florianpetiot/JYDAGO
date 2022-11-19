@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../logo_jda.ico">
+    <!--Icone JDA-->
+    <link rel="stylesheet" href="style_prof.css?v=24">
+    <title>JYDAGO</title>
+</head>
+
+<body class="animate-in">
+
+    <script type="text/javascript" src="script_prof.js?v=24"></script>
+
+    <a href="../">
+        <div class="acces-eleves">
+            Accès élèves >
+        </div>
+    </a>
+
+
+    <div id="cadre-ext" class="cadre-ext">
+        <!--Cadre clair arrondi-->
+        <h1>JYDAGO | Prof</h1>
+        <h3 class="large">Retrouvez ici toutes les questions concernant votre spécialité</h3>
+        <!--Titre-->
+
+        <form onsubmit="return false">
+            <!--permet d'eviter que la page ne se recharge toute seule-->
+            <div class="formulaire">
+                <div class="group">
+                    <input type="text" id="id" inputmode="numeric" class="large" autocapitalize="off" autofocus required>
+                    <!--AutoCaps off car identifiants en minuscule + Auto focus pour une meilleure indication -->
+                    <span class="bar large"></span>
+                    <!--Barre inférieure-->
+                    <label>Identifiant</label>
+                    <!--texte/placeholder-->
+                </div>
+                <div>
+                    <div class="group gmdp">
+                        <input type="password" id="mdp" class="mince" required>
+                        <span class="bar mince"></span>
+                        <label>Mot de passe</label>
+                    </div>
+                    <button class="mince" id="bouton_connection" href="" onClick="recupperer_questions()">Se
+                        connecter</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

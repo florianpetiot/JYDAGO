@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo_jda.ico">
+    <!--Icone JDA-->
+    <link rel="stylesheet" href="style_eleve.css?v=24">
+    <title>JYDAGO</title>
+</head>
+
+<body class="animate-in">  
+    <script type="text/javascript" src="script_eleve.js?v=24"></script>
+
+    <a href="session_prof/">
+        <div class="acces-profs">
+            Accès professeurs >
+        </div>
+    </a>
+    
+    
+
+    <div class="cadre-ext">
+        <!--Cadre clair arrondi-->
+        <h1>JYDAGO | Elève</h1>
+        <?php
+        $limite = getenv('LIMITE');
+        $annee = substr($limite, 0, 4);
+        $mois = substr($limite, 4, 2);
+        $jour = substr($limite, 6, 2);
+        $heure = substr($limite, 8, 2);
+        $minute = substr($limite, 10, 2);
+        echo "<h3>Veuillez remplir vos questions avant le ".$jour."/".$mois."/".$annee." à ".$heure."h".$minute."</h3>";
+        ?>
+        <!--Titre-->
+        
+        <form onsubmit="return false">
+            <!--permet d'eviter que la page ne se recharge toute seule-->
+            <div class="formulaire">
+                <div class="group">
+                    <input type="text" id="id" inputmode="numeric" class="large" autocapitalize="off" autofocus placeholder=" " required>
+                    <!--AutoCaps off car identifiants en minuscule + Auto focus pour une meilleure indication -->
+                    <span class="bar large"></span>
+                    <!--Barre inférieure-->
+                    <label>Identifiant</label>
+                    <!--texte/placeholder-->
+                </div>
+                <div>
+                    <div class="group div-mdp">
+                        <input type="password" id="mdp" class="mince" placeholder=" " required>
+                        <span class="bar mince"></span>
+                        <label>Mot de passe</label>
+                    </div>
+                    <button class="mince" id="bouton_connection" href="" onClick="recupperer_questions()">Se connecter</button>
+                </div>
+            </div>
+        </form>
+
+        <h3 id="nom-eleve" hidden></h3>
+
+        <!--Separation de "partie"-->
+
+        <div class="formulaire">
+            <form autocomplete="off">
+                <div>
+                    <div class="group premiere-question">
+                        <textarea id="q1" class="large" disabled optional placeholder=" " rows="1" oninput="this.value = this.value.replace(/[\r\n]+/g,''); auto_grow(this);"></textarea>
+                        <span class="bar large"></span>
+                        <label>Question 1</label>
+                    </div>
+                    <br>
+                    <div class="select mince">
+                        <select id='q1s1' onchange="bloquerSpe1('q1s1','q1s2')" class="select-text mince" disabled required>
+                            <!--value: envoyée à la bdd, non visible sur le site-->
+                            <option value="" selected hidden></option>
+                        </select>
+                        <span class="select-highlight mince"></span>
+                        <span class="select-bar mince"></span>
+                        <!--barre inférieure-->
+                        <label class="select-label mince">Spécialité 1</label>
+                        <!--text/placeholder-->
+                    </div>
+
+                    <div class="select mince">
+                        <select id='q1s2' onchange="verifierSpe1('q1s1', 'q1s2')" class="select-text mince" disabled required>
+                            <option value="" selected></option>
+                        </select>
+                        <span class="select-highlight mince"></span>
+                        <span class="select-bar mince"></span>
+                        <label class="select-label mince">Spécialité 2</label>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="group deuxieme-question">
+                        <textarea id="q2" class="large" disabled optional placeholder=" " rows="1" oninput="this.value = this.value.replace(/[\r\n]+/g,''); auto_grow(this);"></textarea>
+                        <span class="bar large"></span>
+                        <label>Question 2</label>
+                    </div>
+                    <br>
+                    <div class="select mince div-q2s">
+                        <select id='q2s1' onchange="bloquerSpe1('q2s1','q2s2')" class="select-text mince" disabled required>
+                            <option value="" selected hidden></option>
+                        </select>
+                        <span class="select-highlight mince"></span>
+                        <span class="select-bar mince"></span>
+                        <label class="select-label mince">Spécialité 1</label>
+                    </div>
+                    <div class="select mince div-q2s">
+                        <select id='q2s2' onchange="verifierSpe1('q2s1', 'q2s2')" class="select-text mince" disabled required>
+                            <option value="" selected></option>
+                        </select>
+                        <span class="select-highlight mince"></span>
+                        <span class="select-bar mince"></span>
+                        <label class="select-label mince">Spécialité 2</label>
+                    </div>
+                </div>
+            </form>
+            <button id="bouton_sauvegarder" onclick="sauvegarder_questions()" disabled>Sauvegarder</button>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

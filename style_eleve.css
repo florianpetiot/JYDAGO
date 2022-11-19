@@ -1,0 +1,379 @@
+* { box-sizing:border-box; }
+
+html, body{min-height:100%;}
+/* pallier un probleme sur les ecrans de telephone plus grands que le cadre */
+
+html { 
+  scroll-behavior: smooth;
+  /* transitions fluides si besoin */
+}
+
+body {
+  font-family: sans-serif;
+  margin-right: 3vw;
+  margin-left: 3vw;
+  margin-top: 0;
+  margin-bottom: 5vh;
+  background: linear-gradient(135deg, #264653, #2A9D8F);
+}
+
+/* transition fluide */
+
+.animate-in {
+  -webkit-animation: fadeIn .5s ease-in;
+  animation: fadeIn .5s ease-in;
+}
+
+.animate-out {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* acces prof */
+
+
+a:link {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+.acces-profs {
+  margin-bottom: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0px 0px 60px 60px;
+  background: #B1D1CE;
+  height: 50px;
+  line-height: 50px;
+  max-width: 700px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+
+  -webkit-transition: line-height 0.25s ease-in, height 0.25s ease-in;
+}
+
+.acces-profs:hover {
+  height: 70px;
+  line-height: 70px;
+  -webkit-transition: 0.25s ease-out;
+}
+
+.acces-profs::before {
+  height: 50px;
+  line-height: 50px;
+  transition: 0.25s ease-out;
+}
+
+
+/* Cadre exterieur */
+
+.cadre-ext {
+  border-radius: 60px;
+  background: #B1D1CE;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  height:justify;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Boutons */
+button {
+  transition: background-color 0.2s ease;
+  background-color: #2D3142;
+  border: none;
+  border-radius: 5vmin;
+  color: #fff;
+  height: 41.8px;
+  font-size: 18px;
+}
+
+button:not(:disabled) {
+  cursor : pointer;
+}
+
+button:hover {
+  transition: background-color 0.2s ease;
+  background-color: #3D445E;
+}
+
+button:disabled{
+  background-color: #2d3142c0;
+  color: #ffffffc0;
+}
+
+#bouton_sauvegarder{
+  margin-top: 35px;
+}
+
+
+/* titre principal de l'application */
+h1{
+  text-align:center;
+}
+
+
+h3 {
+  text-align:center;
+  margin-bottom: 45px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#nom-eleve{
+  margin-top: 0px;
+  padding-top: 35px;
+  margin-bottom: 0px;
+}
+
+
+/* desactiver le surlignement de l'auto-completion du navigateur */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #B1D1CE inset !important;
+    box-shadow: 0 0 0 30px #B1D1CE inset !important;
+}
+
+
+
+/* form starting stylings ------------------------------- */
+.formulaire {
+  display: grid;
+  justify-content: center;
+}
+.group{ 
+  position:relative; 
+  margin-bottom: 45px;
+  display: inline-block;
+}
+
+.div-mdp{
+  margin-bottom: 0px;
+}
+
+.premiere-question{
+  margin-top: 60px;
+}
+
+.deuxieme-question{
+  margin-top: 15px;
+}
+
+.large {
+    width: 80vw;
+    max-width: 600px;
+}
+
+.mince{
+    width: 40vw;
+    max-width:300px;
+}
+
+input{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  border:none;
+  background-color: transparent;
+  border-bottom:1px solid #757575;
+}
+
+textarea{
+  font-size:18px;
+  font-family: sans-serif;
+  text-align: justify;
+  padding:10px 10px 10px 5px;
+  display:block;
+  border:none;
+  outline: none;
+  background-color: transparent;
+  border-bottom:1px solid #757575;
+  resize: none;
+  overflow: hidden;
+}
+
+textarea:disabled{
+  color:black;
+}
+
+#mdp {
+  letter-spacing: 5px;
+}
+
+input:focus { outline:none; }
+
+
+/* LABEL ======================================= */
+label{
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:not(:placeholder-shown) ~ label, input:focus ~ label, textarea:not(:placeholder-shown) ~ label, textarea:focus ~ label {
+  top:-20px;
+  font-size:14px;
+  color:#0D62C4;
+}
+
+
+
+/* BOTTOM BARS ================================= */
+
+.bar { position:relative; display:block;}
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#0D62C4; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after, textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
+  width:50%;
+}
+
+
+
+/* ================== SELECT BOX ====================== */
+
+.select {
+  font-family:
+  'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 45px;
+}
+
+.div-q2s{
+  margin-bottom: 10px;
+}
+
+.select-readonly {
+  pointer-events: none;
+  touch-action: none;
+}
+
+.select-text {
+    position: relative;
+    font-family: inherit;
+    background-color: transparent;
+    padding: 10px 10px 10px 5px;
+    font-size: 18px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #757575;
+}
+
+/* Remove focus */
+.select-text:focus {
+    outline: none;
+    border-bottom: 1px solid #757575;
+}
+
+/* Use custom arrow */
+.select .select-text {
+    appearance: none;
+    -webkit-appearance:none;
+}
+
+.select:after {
+    position: absolute;
+    top: 18px;
+    right: 10px;
+}
+
+
+/* LABEL ======================================= */
+.select-label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+/* active state */
+.select-text:valid ~ .select-label {
+    color: #0D62C4;
+    top: -20px;
+    transition: 0.2s ease all;
+    font-size: 14px;
+}
+
+/* BOTTOM BARS ================================= */
+.select-bar {
+    position: relative;
+    display: block;
+}
+
+.select-bar:before, .select-bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #0D62C4;
+    transition: 0.2s ease all;
+}
+
+.select-bar:before {
+    left: 50%;
+}
+
+.select-bar:after {
+    right: 50%;
+}
+
+/* active state */
+.select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+    width: 50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.select-highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}

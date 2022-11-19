@@ -1,0 +1,262 @@
+* { box-sizing:border-box; }
+
+html, body{min-height:100%;}
+/* pallier un probleme sur les ecrans de telephone plus grands que le cadre */
+
+html { 
+  scroll-behavior: smooth;
+  /* transitions fluides si besoin */
+}
+
+body {
+  font-family: sans-serif;
+  margin-right: 3vw;
+  margin-left: 3vw;
+  margin-top: 0;
+  margin-bottom: 5vh;
+  background: linear-gradient(135deg, #264653, #2A9D8F);
+}
+
+/* transition fluide */
+
+.animate-in {
+  -webkit-animation: fadeIn .5s ease-in;
+  animation: fadeIn .5s ease-in;
+}
+
+.animate-out {
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  opacity: 0;
+}
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* acces prof */
+
+a:link {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+
+.acces-eleves {
+  margin-bottom: 5vh;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0px 0px 60px 60px;
+  background: #B1D1CE;
+  height: 50px;
+  line-height: 50px;
+  max-width: 700px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+
+  -webkit-transition: line-height 0.25s ease-in, height 0.25s ease-in;
+}
+
+.acces-eleves:hover {
+  height: 70px;
+  line-height: 70px;
+  -webkit-transition: 0.25s ease-out;
+}
+
+.acces-eleves::before {
+  height: 50px;
+  line-height: 50px;
+  transition: 0.25s ease-out;
+}
+
+
+/* Cadre exterieur */
+
+.cadre-ext {
+  border-radius: 60px;
+  background: #B1D1CE;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  height:justify;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Boutons */
+button {
+  transition: background-color 0.2s ease;
+  background-color: #2D3142;
+  border: none;
+  border-radius: 5vmin;
+  color: #fff;
+  height: 41.8px;
+  font-size: 18px;
+}
+
+button:not(:disabled) {
+  cursor : pointer;
+}
+
+button:hover {
+  transition: background-color 0.2s ease;
+  background-color: #3D445E;
+}
+
+button:disabled{
+  background-color: #2d3142c0;
+  color: #ffffffc0;
+}
+
+#bouton-exporter {
+  margin-bottom: 10px;
+}
+
+
+/* desactiver le surlignement de l'auto-completion du navigateur */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #B1D1CE inset !important;
+    box-shadow: 0 0 0 30px #B1D1CE inset !important;
+}
+
+
+/* titre principal de l'application */
+h1{
+  text-align:center;
+}
+
+h3 {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 45px;
+}
+
+#nom-prof {
+  margin-bottom: 30px;
+  padding-top: 30px;
+}
+
+/* liste des questions */
+
+.liste-questions {
+  margin: auto;
+  margin-top: 5px;
+}
+
+.question{
+  text-align: justify;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+hr {
+  margin: 0;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, #ffffff00,#2D3142, #ffffff00);
+
+}
+
+.prenom {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+
+
+/* form starting stylings ------------------------------- */
+.formulaire {
+  display: grid;
+  justify-content: center;
+}
+.group{ 
+  position:relative; 
+  margin-bottom: 45px;
+  display: inline-block;
+}
+.gmdp{
+  margin-bottom: 0px;
+}
+.large {
+    width: 80vw;
+    max-width: 600px;
+}
+
+.mince{
+    width: 40vw;
+    max-width:300px;
+}
+
+input{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  border:none;
+  background-color: transparent;
+  border-bottom:1px solid #757575;
+}
+
+#mdp {
+  letter-spacing: 5px;
+}
+
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label{
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:valid ~ label, input:focus ~ label, input:disabled ~ label{
+  top:-20px;
+  font-size:14px;
+  color:#0D62C4;
+}
+
+
+/* BOTTOM BARS ================================= */
+
+.bar { position:relative; display:block;}
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#0D62C4; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
