@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="logo_jda.ico">
     <!--Icone JDA-->
-    <link rel="stylesheet" href="style_eleve.css?v=24">
+    <link rel="stylesheet" href="style_eleve.css?v=25">
     <title>JYDAGO</title>
 </head>
 
 <body class="animate-in">  
-    <script type="text/javascript" src="script_eleve.js?v=24"></script>
+    <script type="text/javascript" src="script_eleve.js?v=25"></script>
 
     <a href="session_prof/">
         <div class="acces-profs">
