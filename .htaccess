@@ -6,8 +6,8 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ 404/index.html [L]
 
 
-# JJ/MM/YYYY_HHhMM
-# ex: 31/12/9999_23h59
+# AAAAMMJJHHMMSS
+# ex: pour 31/12/9999_23h59 -> 99991231235900
 
 SetEnv TZ Europe/Paris
 SetEnvIf Host ^ LIMITE=20230616123000
