@@ -34,13 +34,21 @@ Vous pouvez essayer une démo scénarisée *(bientôt disponible)* dans laquelle
 
 	Un professeur peut être associé à plusieurs matières (ex: prof enseignant math/physique). Il peut être associé à des élèves en particulier (ex: classe) et donc ne pas recevoir toutes les questions portant sur les maths par exemple. Enfin, un élève peut être associé à plusieurs professeurs (ex: classe à 2 profs)
 
-	[img]
+	<p align="center">
+	<img src="https://i.imgur.com/K1Z9a7R.png" width="45%" style="border-radius: 20px">
+	<span>&nbsp;&nbsp;&nbsp;</span>
+	<img src="https://i.imgur.com/tbIieW8.png" width="45%" style="border-radius: 20px">
+	</p>
 
 * ### Administration
 	Les comptes administrateur peuvent se connecter sur la partie /session_prof du site grâce à un identifiant et un mot de passe. Ils ont accès aux fonctionnalités des professeurs, en étant associés à toutes les spécialités en même temps. De plus, ils peuvent télécharger un "rapport de base" contenant plusieurs informations :
 
-	* La liste de toutes les incohérences présente dans la base, suite à de potentielles mauvaises entré d'élèves
+	* La liste de toutes les incohérences présente dans la base, suite à de potentielles mauvaises entrées d'élèves
     * Quelques statistiques comme le nombre d'élèves ne s'étant jamais connecté ou encore le nombre de questions non enregistrées.
+
+	<p align="center">
+	<img src="https://i.imgur.com/AgdEnK9.png" width="500" style="border-radius: 20px">
+	</p>
 
 # Notes
 J'ai réalisé ce projet en classe de Terminal en totale autonomie, et porte sur des notions, de loin, hors programme. Le code est donc évidemment loin d’être parfait et sécurisé, mais le faire m’aura permis de découvrir beaucoup de choses.
