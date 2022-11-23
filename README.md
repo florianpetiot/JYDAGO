@@ -15,7 +15,7 @@ Ce projet est donc actuellement mis à disposition des élèves, des professeurs
 * **[Crédit](#Crédits)**
 
 # Démo
-Vous pouvez essayer une démo scénarisée dans laquelle vous pourrez vous connecter en tant qu'élève, que professionnel ou qu'administrateur.
+Vous pouvez essayer une démo scénarisée *(bientôt disponible)* dans laquelle vous pourrez vous connecter en tant qu'élève, que professionnel ou qu'administrateur.
 
 # Fonctionalités
 * ### Élèves
