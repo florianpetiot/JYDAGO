@@ -23,7 +23,9 @@ Vous pouvez essayer une démo scénarisée *(bientôt disponible)* dans laquelle
 
 	Les cases "spécialité" lui proposent uniquement les 2 spécialités qu'il a choisies pour sa Terminal. En plus d'un message de bienvenue, l'expérience utilisateur est ainsi personnalisée pour tous.
 
-	[img]
+	<p align="center">
+	<img src="https://i.imgur.com/A6OI9ID.png" width="500" style="border-radius: 20px">
+	</p>
 	
 * ### Professeurs
 	 Les professeurs peuvent se connecter sur la partie /session_prof du site grâce à un identifiant et un mot de passe. Ils peuvent obtenir la liste de leurs élèves et ainsi les suivre dans leur parcours, mais également voir ceux qui n'ont pas encore enregistré leurs questions.
