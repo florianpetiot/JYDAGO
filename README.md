@@ -32,7 +32,7 @@ Vous pouvez essayer une démo scénarisée *(bientôt disponible)* dans laquelle
 
 	De plus, le service ne fonctionnant que dans le réseau interne au lycée, ils peuvent également télécharger un fichier correctement formaté pour avoir les questions depuis chez eux.
 
-	Un professeur peut être associé à plusieurs matières (ex: prof enseignant math/physique). Il peut être associé à des élèves en particulier (ex: classe) et donc ne pas recevoir toutes les questions portant sur les maths par exemple. Enfin, un élève peut être associé à plusieurs professeurs (ex: classe à 2 profs)
+	Un professeur peut être associé à plusieurs matières *(ex: prof enseignant math/physique)*. Il peut être associé à des élèves en particulier *(ex: classe)* et donc ne pas recevoir toutes les questions portant sur les maths par exemple. Enfin, un élève peut être associé à plusieurs professeurs *(ex: classe à 2 profs)*
 
 	<p align="center">
 	<img src="https://i.imgur.com/K1Z9a7R.png" width="45%" style="border-radius: 20px">
