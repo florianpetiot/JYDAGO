@@ -11,7 +11,7 @@ Ce projet est donc actuellement mis à disposition des élèves, des professeurs
 	* **[Élèves](#élèves)**
 	* **[Professeurs](#professeurs)**
 	* **[Administration](#administration)**
-* **[Notes](notes)**
+* **[Notes](#notes)**
 * **[Crédit](#Crédits)**
 
 # Démo
