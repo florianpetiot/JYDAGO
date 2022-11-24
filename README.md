@@ -7,15 +7,20 @@ Ce projet est donc actuellement mis à disposition des élèves, des professeurs
 
 # Somaire
 * **[Démo](#démo)**
+* **[Installation](#installation)**
 * **[Fonctionalités](#fonctionalités)**
 	* **[Élèves](#élèves)**
 	* **[Professeurs](#professeurs)**
 	* **[Administration](#administration)**
 * **[Notes](#notes)**
-* **[Crédit](#Crédits)**
+* **[Crédits](#Crédits)**
 
 # Démo
-Vous pouvez essayer une **[démo scénarisée](https://github.com/florianpetiot/JYDAGO-Demo)** dans laquelle vous pourrez vous connecter en tant qu'élève, que professeur ou qu'administrateur.
+Vous pouvez essayer une **[démo scénarisée](https://github.com/florianpetiot/JYDAGO-Demo)** dans laquelle vous pourrez vous "connecter" en tant qu'élève, que professeur ou qu'administrateur, sans avoir besoins de mettre en place la base de données.
+
+# Installation
+Vous pouvez lier le site à une base de données stockée sur votre machine (ex: Laragon).
+Pour cela, téléchargez puis hébergez la sauvegarde `/ressources/jydago.sql` puis modifiez le ficher `/identifiants_bdd.php` à la racine du projet en conséquence.
 
 # Fonctionalités
 * ### Élèves
