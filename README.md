@@ -24,7 +24,7 @@ Pour cela, téléchargez puis hébergez la sauvegarde `/ressources/jydago.sql` p
 
 # Fonctionalités
 * ### Élèves
-	Les élèves peuvent se connecter via **[la racine du site](https://github.com/florianpetiot/JYDAGO-Demo)** grâce à un identifiant et un mot de passe. S'ils ont déjà enregistrés des questions précédemment, elles apparaissent dans leur case respective. Sinon ils disposent d'un temps imparti pour les écrire, après lequel la partie élève du site passera en "lecture seule".
+	Les élèves peuvent se connecter via **[la racine du site](https://florianpetiot.github.io/JYDAGO-Demo/)** grâce à un identifiant et un mot de passe. S'ils ont déjà enregistrés des questions précédemment, elles apparaissent dans leur case respective. Sinon ils disposent d'un temps imparti pour les écrire, après lequel la partie élève du site passera en "lecture seule".
 
 	Les cases "spécialité" leur proposent uniquement les deux spécialités qu'ils ont choisi pour leur Terminal. En plus d'un message de bienvenue, l'expérience utilisateur est ainsi personnalisée pour tous.
 
