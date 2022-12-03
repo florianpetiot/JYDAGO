@@ -239,7 +239,7 @@ else {
                     // RAPPEL : cette boucle (ligne 212) tri les questions une spe par une spe, les eleves selectionnés ont forcement le prof en classe
                     // si la spe de la feuille n'est pas concernee par l'élève (utile pour les prof multi spe ou le compte admin, ex : prof A/B, q1B q2C, feuille A)
                     // OU || si le prof de l'élève, dans cette spe, n'est pas le prof qui reclamme le fichier excel (cas typique : prof1A/B, prof2A, q1A avec p2, q2B) ET QUE && le prof qui reclamme n'est pas l'administrateur, car transcendant de tous les profs
-                    // ALORS on initie la supression de la ligne, SAUF si la question 2 sera utile (ligne 153)
+                    // ALORS on initie la supression de la ligne, SAUF si la question 2 sera utile (ligne 253)
                     
                     if (in_array($spe, array($eleve["spe1"], $eleve["spe2"])) === false || (in_array($user_id, explode("/", array($eleve["idprof1"], $eleve["idprof2"])[array_search($spe, array($eleve["spe1"], $eleve["spe2"]))])) === false && $specialite != "TOUTES")) {
                         $vide = true;

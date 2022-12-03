@@ -1,10 +1,7 @@
 <?php
 // recuperer les variables
-// $user_id = $_REQUEST['user_id'];
-// $user_mdp = $_REQUEST['user_mdp'];
-
-$user_id = "999";
-$user_mdp = "999";
+$user_id = $_REQUEST['user_id'];
+$user_mdp = $_REQUEST['user_mdp'];
 
 // hash le mot de passe pour la securite en cas de hacking de la BDD
 $hash_mdp = hash("sha1", $user_mdp);
@@ -22,11 +19,11 @@ if (mysqli_connect_errno()) {
 else {
     // recuperer la specialite demandee
     mysqli_query($con, "SET NAMES 'utf8'");
-    $admin = mysqli_query($con,"SELECT id FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+    $admin = mysqli_query($con, "SELECT specialite FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
 
-    // verifier qu'il y a un resultat et que l'id est bien égale à 999
+    // verifier qu'il y a un resultat ou que la specialite du prof est 'TOUTES'
     $existe=mysqli_num_rows($admin);
-    if ($existe == 0 || $user_id != 999) {
+    if ($existe == 0 || ($existe != 0 && mysqli_fetch_row($admin)[0] != "TOUTES")) {
         echo "err_id";
         // On ferme la connexion
         mysqli_close($con);

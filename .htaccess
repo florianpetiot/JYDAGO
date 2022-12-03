@@ -16,7 +16,6 @@ SetEnvIf Host ^ LIMITE=20230616123000
 RewriteCond expr "%{TIME} -ge env('LIMITE')"
 RewriteRule ^index\.php$ lecture_seule/index.html [L,NC]
 
-
+# empecher les eleves d'aller sur la page de lecture seule par eux meme avant le moment voulu
 RewriteCond expr "%{TIME} -lt env('LIMITE')"
-RewriteRule "^/lecture_seule\.html$" "/index.php" [PT]
-
+RewriteRule ^lecture_seule/index\.html$ 404/index.html [L,NC]

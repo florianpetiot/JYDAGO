@@ -61,7 +61,7 @@ function recupperer_questions() {
 
                     html += "<h3 id='nom-prof'>Bonjour, " + myObj["nom_prof"].prenom + " " + myObj["nom_prof"].nom + "</h3>";
                     html += "<button id='bouton-exporter' class='large' onclick='telecharger_questions()'>Exporter les questions</button>";
-                    if (id == '999'){
+                    if (myObj["nom_prof"].specialite == "TOUTES") {
                         html += "<button id='bouton-exporter' class='large' onclick='telecharger_rapport()'>Télécharger un rapport</button>";
                     }
                     html += "<hr>";

@@ -23,7 +23,7 @@ else {
     // verifier qu'il y a un resultat
     $existe=mysqli_num_rows($specialite_prof);
     if ($existe == 0) {
-        // tester si un prof s'est connecté au mauvais endroit
+        // tester si un eleve s'est connecté au mauvais endroit
         $test_eleve = mysqli_query($con, "SELECT * FROM liste WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
         $existe_eleve = mysqli_num_rows($test_eleve);
         if ($existe_eleve != 0) {
@@ -38,7 +38,7 @@ else {
     else {
         // recuperer nom prenom du prof dans une autre variable
         mysqli_query($con, "SET NAMES 'utf8'");
-        $nom_prof = mysqli_query($con, "SELECT nom, prenom FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
+        $nom_prof = mysqli_query($con, "SELECT nom, prenom, specialite FROM profs WHERE (id = '$user_id' AND mdp = '$hash_mdp');");
         // stocker le nom et prenom du prof dans une liste
         $nom_prof = mysqli_fetch_array($nom_prof);
         
