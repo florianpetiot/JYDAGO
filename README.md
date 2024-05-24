@@ -5,7 +5,7 @@ L'idée de départ était de faciliter le recensement des questions du Grand Ora
 
 Ce projet est donc actuellement mis à disposition des élèves, des professeurs et de l'administration de mon lycée.
 
-# Somaire
+# Sommaire
 * **[Démo](#démo)**
 * **[Installation](#installation)**
 * **[Fonctionalités](#fonctionalités)**
@@ -16,7 +16,7 @@ Ce projet est donc actuellement mis à disposition des élèves, des professeurs
 * **[Crédits](#Crédits)**
 
 # Démo
-Vous pouvez essayer une **[démo scénarisée](https://github.com/florianpetiot/JYDAGO-Demo)** dans laquelle vous pourrez vous "connecter" en tant qu'élève, que professeur ou qu'administrateur, sans avoir besoins de mettre en place la base de données.
+Vous pouvez essayer une **[démo scénarisée](https://github.com/florianpetiot/JYDAGO-Demo)** dans laquelle vous pourrez vous "connecter" en tant qu'élève, que professeur ou qu'administrateur, sans avoir besoin de mettre en place la base de données.
 
 # Installation
 Vous pouvez lier le site à une base de données stockée sur votre machine (ex: Laragon).
@@ -24,9 +24,9 @@ Pour cela, téléchargez puis hébergez la sauvegarde `/ressources/jydago.sql` p
 
 # Fonctionalités
 * ### Élèves
-	Les élèves peuvent se connecter via **[la racine du site](https://florianpetiot.github.io/JYDAGO-Demo/)** grâce à un identifiant et un mot de passe. S'ils ont déjà enregistrés des questions précédemment, elles apparaissent dans leur case respective. Sinon ils disposent d'un temps imparti pour les écrire, après lequel la partie élève du site passera en "lecture seule".
+	Les élèves peuvent se connecter via **[la racine du site](https://florianpetiot.github.io/JYDAGO-Demo/)** grâce à un identifiant et un mot de passe. S'ils ont déjà enregistré des questions précédemment, elles apparaissent dans leur case respective. Sinon ils disposent d'un temps imparti pour les écrire, après lequel la partie élève du site passera en "lecture seule".
 
-	Les cases "spécialité" leur proposent uniquement les deux spécialités qu'ils ont choisi pour leur Terminal. En plus d'un message de bienvenue, l'expérience utilisateur est ainsi personnalisée pour tous.
+	Les cases "spécialité" leur proposent uniquement les deux spécialités qu'ils ont choisies pour leur Terminale. En plus d'un message de bienvenue, l'expérience utilisateur est ainsi personnalisée pour tous.
 
 	<p align="center">
 	<img src="https://i.imgur.com/A6OI9ID.png" width="500" style="border-radius: 20px">
