@@ -1,3 +1,7 @@
+![Static Badge](https://img.shields.io/badge/Scolaire-1B4965?style=for-the-badge) - ![Static Badge](https://img.shields.io/badge/Mise_%C3%A0_jour-04%2F12%2F2022-E4DFDA?style=flat) - ![Static Badge](https://img.shields.io/badge/HTML-dd4b25?style=flat) ![Static Badge](https://img.shields.io/badge/CSS-016cb4?style=flat) ![Static Badge](https://img.shields.io/badge/JS-e8d44d?style=flat) ![Static Badge](https://img.shields.io/badge/PHP-7177af?style=flat) ![Static Badge](https://img.shields.io/badge/.HTACCESS-3696b8?style=flat)
+
+
+
 # JYDAGO
 Ce projet a été réalisé en mai 2022 sous l'initiative de mon professeur d'NSI (Numérique et Sciences informatiques).
 
